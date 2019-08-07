@@ -2,11 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import User from './User';
 
-ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
+function Button(props) {
+	return (
+		<input className="testBtn" type="button" value={props.value} />
+	);
+}
+
+
+function Hello(props) {
+	return (
+		<div>
+			<h2>Hello, {props.name}</h2>
+			<User name="Petya" />
+			<Button value="Отправка текста" />
+			<Button value="I am" />
+		</div>
+	);
+}
+
+const elem = <Hello name="Вася" />;
+
+const test = 'some string...';
+ReactDOM.render(elem, document.getElementById('root'));
+
