@@ -3,29 +3,59 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import User from './User';
+import { View, Panel, PanelHeader, Group, List, Cell, Div, Button, HeaderButton, CellButton, Header } from '@vkontakte/vkui';
+import Icon20GlobeOutline from '@vkontakte/icons/dist/20/globe_outline';
+import '@vkontakte/vkui/dist/vkui.css';
+import Icon24Add from '@vkontakte/icons/dist/24/add';
+import Icon24Search from '@vkontakte/icons/dist/24/search';
+import Bar from './Bar';
 
+class My extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {date: new Date(), isCheck: true};
+		this.onClickButton = this.onClickButton.bind(this);
+	}
 
+	componentDidMount() {
+		this.timerId = setInterval(() => {
+			this.setState( {date: new Date()} );
+		}, 1000);
+	}
 
-function Button(props) {
-	return (
-		<input className="testBtn" type="button" value={props.value} />
-	);
+	componentWillUnmount() {
+		clearInterval(this.timerId);
+	}
+
+	onClickButton(e) {
+		this.setState({isCheck: !this.state.isCheck});
+	}
+
+	render() {
+		let str;
+		if (this.state.isCheck) {
+			str = <Shower />;
+		}
+		return (
+			<div>
+				<Bar>hello <Button onClick={this.onClickButton}>Text</Button></Bar>
+				<div className="some">
+					<Button onClick={this.onClickButton}>Text</Button>
+					<p>{this.state.date.toLocaleTimeString()}</p>
+					{str}
+				</div>
+			</div>
+		);
+		
+	}
 }
 
 
-function Hello(props) {
+function Shower() {
 	return (
-		<div>
-			<h2>Hello, {props.name}</h2>
-			<User name="Petya" />
-			<Button value="Отправка текста" />
-			<Button value="I am" />
-		</div>
+		<div>some secret text</div>
 	);
 }
 
-const elem = <Hello name="Вася" />;
-
-const test = 'some string...';
-ReactDOM.render(elem, document.getElementById('root'));
+ReactDOM.render(<My text="hello"/>, document.getElementById('root'));
 

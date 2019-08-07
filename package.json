@@ -6,6 +6,7 @@
   "dependencies": {
     "@vkontakte/icons": "^1.8.0",
     "@vkontakte/vkui": "^2.23.6",
+    "@vkontakte/vkui-connect": "^1.5.3",
     "gh-pages": "^2.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
