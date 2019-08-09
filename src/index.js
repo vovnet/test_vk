@@ -13,49 +13,43 @@ import Bar from './Bar';
 class My extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {date: new Date(), isCheck: true};
-		this.onClickButton = this.onClickButton.bind(this);
+		this.state = {dataText: []};
+		this.clickCall = this.clickCall.bind(this);
+		this.removeCall = this.removeCall.bind(this);
 	}
 
-	componentDidMount() {
-		this.timerId = setInterval(() => {
-			this.setState( {date: new Date()} );
-		}, 1000);
+	clickCall(event) {
+		this.state.dataText.push(event.currentTarget.dataset.val);
+		this.setState({dataText: this.state.dataText});
 	}
 
-	componentWillUnmount() {
-		clearInterval(this.timerId);
+	removeCall(event) {
+		this.state.dataText.pop();
+		this.setState({dataText: this.state.dataText});
 	}
 
-	onClickButton(e) {
-		this.setState({isCheck: !this.state.isCheck});
+	showButtons() {
+		return this.props.data.map((val) => {
+			return (
+				<Button data-val={val} level="outline" disabled={this.state.dataText.indexOf(val) >= 0} onClick={this.clickCall}>{val}</Button>
+			);
+		});
 	}
 
 	render() {
-		let str;
-		if (this.state.isCheck) {
-			str = <Shower />;
-		}
 		return (
 			<div>
-				<Bar>hello <Button onClick={this.onClickButton}>Text</Button></Bar>
-				<div className="some">
-					<Button onClick={this.onClickButton}>Text</Button>
-					<p>{this.state.date.toLocaleTimeString()}</p>
-					{str}
-				</div>
+				{this.showButtons()}
+				<div>{this.state.dataText}</div>
+				<Button onClick={this.removeCall}>Remove last</Button>
 			</div>
+			
 		);
-		
 	}
 }
 
 
-function Shower() {
-	return (
-		<div>some secret text</div>
-	);
-}
 
-ReactDOM.render(<My text="hello"/>, document.getElementById('root'));
+var data = ["test", "next", "some", "super"];
+ReactDOM.render(<My data={data}/>, document.getElementById('root'));
 
