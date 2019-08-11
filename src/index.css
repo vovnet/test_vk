@@ -14,41 +14,12 @@ code {
     monospace;
 }
 
-h2 {
-	border: 1px solid red;
+.question {
+  text-align: center;
+  font-size: 1.1em;
+  color: #377898;
 }
 
-.testBtn {
-	 display: inline-block;
-	 border:1px solid #c9ae34;
-	 color: #705D07;
-	 border-radius: 3px 3px 3px 3px;
-	 -webkit-border-radius: 3px 3px 3px 3px;
-	 -moz-border-radius: 3px 3px 3px 3px;
-	 font-family: Verdana;
-	 width: auto;
-	 height: auto;
-	 font-size: 16px;
-	 padding: 10px 40px;
-	 box-shadow: inset 0 1px 0 0 #fff6ce,inset 0 -1px 0 0 #e3c852,inset 0 0 0 1px #fce88d,0 2px 4px 0 #D4D4D4;
-	 -moz-box-shadow: inset 0 1px 0 0 #fff6ce,inset 0 -1px 0 0 #e3c852,inset 0 0 0 1px #fce88d,0 2px 4px 0 #D4D4D4;
-	 -webkit-box-shadow: inset 0 1px 0 0 #fff6ce,inset 0 -1px 0 0 #e3c852,inset 0 0 0 1px #fce88d,0 2px 4px 0 #D4D4D4;
-	 text-shadow: 0 1px 0 #fff;
-	 background-image: linear-gradient(to top, #fce374, #fcdf5b);
-	 background-color: #fce374;
+.donater {
+  color: #f00;
 }
-.testBtn:hover, .testBtn:active{
-	 border:1px solid #967d09;
-	 color: #705D07;
-	 box-shadow: inset 0 1px 0 0 #fff6ce,inset 0 -1px 0 0 #e3c852,inset 0 0 0 1px #fce88d;
-	 -moz-box-shadow: inset 0 1px 0 0 #fff6ce,inset 0 -1px 0 0 #e3c852,inset 0 0 0 1px #fce88d;
-	 -webkit-box-shadow: inset 0 1px 0 0 #fff6ce,inset 0 -1px 0 0 #e3c852,inset 0 0 0 1px #fce88d;
-	 background-color: #fcdf5b;
-}
-
-.buttonsdiv {
-	max-width: 90%;
-	margin: auto;
-}
-
-

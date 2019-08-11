@@ -1,0 +1,8 @@
+.answer-block {
+  width: 100%;
+  text-align: center;
+}
+
+.statusError {
+	color: #ff6c3e;
+}
