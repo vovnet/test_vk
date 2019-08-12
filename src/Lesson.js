@@ -1,5 +1,5 @@
 import React from 'react';
-import { Group, Div, Panel, View, Root, PanelHeader, Progress } from '@vkontakte/vkui';
+import { Group, Div, Panel, PanelHeader, Progress } from '@vkontakte/vkui';
 import InputAnswer from './InputAnswer';
 import Variants from './Variants';
 
@@ -10,28 +10,38 @@ class Lesson extends React.Component {
 
 		this.state = {
 			input: [],
-			buttons: [
-				{text: "I"}, 
-				{text: "do"},
-				{text: "can"},
-				{text: "walk"},
-				{text: "will"},
-				{text: "me"},
-				{text: "call"},
-				{text: "us"},
-				{text: "tomorrow"},
-			],
-			error: false
+			buttons: this.shuffle(this.generateButtons()),
+			error: false,
+			formattedAnswer: ''
 		};
 
 		this.onClickWord = this.onClickWord.bind(this);
 		this.onDelete = this.onDelete.bind(this);
 	}
 
+	generateButtons() {
+		const preparedAnswer = this.prepareData(this.props.exercise.answer);
+		const preparedFake = this.prepareData(this.props.exercise.fake);
+		return preparedAnswer.concat(preparedFake);
+	}
+
+	shuffle(arr) {
+		return arr.sort(function(){
+			return Math.random() - 0.5;
+		});
+	}
+
+	prepareData(data) {
+		return data.map((val) => {
+			return { text: val };
+		});
+	}
+
 	onDelete() {
 		let word = this.state.input.pop();
 		this.setState(this.state.input);
 		this.changeDisabledButton(word);
+		this.formatAnswer();
 	}
 
 	onClickWord(event) {
@@ -39,6 +49,7 @@ class Lesson extends React.Component {
 		this.changeDisabledButton(word);
 		this.state.input.push(word);
 		this.setState(this.state.input);
+		this.formatAnswer();
 		if (this.compareResults()) this.props.onComplete();
 	}
 
@@ -51,15 +62,17 @@ class Lesson extends React.Component {
 		});
 	}
 
-	getFormatAnswer() {
+	formatAnswer() {
 		let filter = this.state.input.filter((val, i) => {
 			if (this.props.exercise.answer[i] !== val) {
 				return 1;
 			}
 		});
 
-		this.state.error = filter.length > 0;
-		return this.state.input.join(' ');
+		this.setState({ 
+			formattedAnswer: this.state.input.join(' '), 
+			error: filter.length > 0
+		});
 	}
 
 	compareResults() {
@@ -68,33 +81,29 @@ class Lesson extends React.Component {
 
 	render() {
 		return (
-			<Root activeView="mainView">
-				<View id="mainView" activePanel="lessonPanel">
-					<Panel id="lessonPanel">
-						<Group>
-							<Div>
-								<Progress value={this.props.progressValue} />
-								<p className="question">{this.props.exercise.question}</p>
-							</Div>
-						</Group>
-						<Group>
-							<Div>
-							<InputAnswer 
-								text={this.getFormatAnswer()} 
-								onDelete={this.onDelete}
-								statusError={this.state.error}
-								disabled={this.state.input.length <= 0} />
-							</Div>
-						</Group>
-						<Group>
-							<PanelHeader>Первый урок</PanelHeader>
-							<Div>
-								<Variants arr={this.state.buttons} onClickWord={this.onClickWord} />
-							</Div>
-						</Group>
-					</Panel>
-				</View>
-			</Root>
+			<Div>
+				<Group>
+					<Div>
+						<Progress value={this.props.progressValue} />
+						<p className="question">{this.props.exercise.question}</p>
+					</Div>
+				</Group>
+				<Group>
+					<Div>
+					<InputAnswer 
+						text={this.state.formattedAnswer} 
+						onDelete={this.onDelete}
+						statusError={this.state.error}
+						disabled={this.state.input.length <= 0} />
+					</Div>
+				</Group>
+				<Group>
+					<PanelHeader>Первый урок</PanelHeader>
+					<Div>
+						<Variants arr={this.state.buttons} onClickWord={this.onClickWord} />
+					</Div>
+				</Group>
+			</Div>		
 		);
 	}
 }
