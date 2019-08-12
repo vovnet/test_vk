@@ -1,5 +1,5 @@
 import React from 'react';
-import { Group, Div, Panel, PanelHeader, Progress } from '@vkontakte/vkui';
+import { Group, Div, Progress } from '@vkontakte/vkui';
 import InputAnswer from './InputAnswer';
 import Variants from './Variants';
 
@@ -98,7 +98,6 @@ class Lesson extends React.Component {
 					</Div>
 				</Group>
 				<Group>
-					<PanelHeader>Первый урок</PanelHeader>
 					<Div>
 						<Variants arr={this.state.buttons} onClickWord={this.onClickWord} />
 					</Div>

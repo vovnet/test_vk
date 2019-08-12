@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Div } from '@vkontakte/vkui';
+import { Button } from '@vkontakte/vkui';
 import './variants.css';
 
 class Variants extends React.Component {
