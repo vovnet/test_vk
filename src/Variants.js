@@ -15,8 +15,9 @@ class Variants extends React.Component {
 						key={val.text} 
 						disabled={val.disabled}
 						data-val={val.text}
+						data-id={val.id}
 						stretched>
-							{val.text}
+							{val.view}
 					</Button> 
 				)}
 			</div>

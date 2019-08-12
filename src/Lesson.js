@@ -15,14 +15,17 @@ class Lesson extends React.Component {
 			formattedAnswer: ''
 		};
 
+		// Хранит id в очереди из нажатых кнопок. Используется для последовательной отмены ввода. 
+		this.history = [];
+
 		this.onClickWord = this.onClickWord.bind(this);
 		this.onDelete = this.onDelete.bind(this);
 	}
 
 	generateButtons() {
-		const preparedAnswer = this.prepareData(this.props.exercise.answer);
-		const preparedFake = this.prepareData(this.props.exercise.fake);
-		return preparedAnswer.concat(preparedFake);
+		const result = this.props.exercise.answer.concat(this.props.exercise.fake);
+		
+		return this.prepareData(result);
 	}
 
 	shuffle(arr) {
@@ -32,30 +35,33 @@ class Lesson extends React.Component {
 	}
 
 	prepareData(data) {
-		return data.map((val) => {
-			return { text: val };
+		return data.map((val, i) => {
+			return { text: val, view: val.toUpperCase(), id: i };
 		});
 	}
 
 	onDelete() {
-		let word = this.state.input.pop();
+		this.state.input.pop();
+		let id = this.history.pop();
 		this.setState(this.state.input);
-		this.changeDisabledButton(word);
+		this.changeDisabledButtons(id);
 		this.formatAnswer();
 	}
 
 	onClickWord(event) {
 		let word = event.currentTarget.dataset.val;
-		this.changeDisabledButton(word);
+		let id = event.currentTarget.dataset.id;
+		this.history.push(id);
+		this.setState(this.changeDisabledButtons(id));
 		this.state.input.push(word);
 		this.setState(this.state.input);
 		this.formatAnswer();
 		if (this.compareResults()) this.props.onComplete();
 	}
 
-	changeDisabledButton(word) {
-		this.state.buttons.map( (val) => {
-			if (val.text === word) {
+	changeDisabledButtons(id) {
+		return this.state.buttons.map( (val) => {
+			if (val.id == id) {
 				val.disabled = !val.disabled;
 			}
 			return val;
@@ -76,7 +82,7 @@ class Lesson extends React.Component {
 	}
 
 	compareResults() {
-		return JSON.stringify(this.state.input) === JSON.stringify(this.props.exercise.answer);
+		return JSON.stringify(this.state.input).toLowerCase() === JSON.stringify(this.props.exercise.answer).toLowerCase();
 	}
 
 	render() {
