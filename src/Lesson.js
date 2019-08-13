@@ -2,6 +2,7 @@ import React from 'react';
 import { Group, Div, Progress } from '@vkontakte/vkui';
 import InputAnswer from './InputAnswer';
 import Variants from './Variants';
+import { shuffle, toUppercaseFirstLetter } from './tools';
 
 class Lesson extends React.Component {
 
@@ -10,7 +11,7 @@ class Lesson extends React.Component {
 
 		this.state = {
 			input: [],
-			buttons: this.shuffle(this.generateButtons()),
+			buttons: shuffle(this.generateButtons()),
 			error: false,
 			formattedAnswer: ''
 		};
@@ -28,12 +29,7 @@ class Lesson extends React.Component {
 		return this.prepareData(result);
 	}
 
-	shuffle(arr) {
-		return arr.sort(function(){
-			return Math.random() - 0.5;
-		});
-	}
-
+	
 	prepareData(data) {
 		return data.map((val, i) => {
 			return { text: val, view: val.toUpperCase(), id: i };
@@ -76,7 +72,7 @@ class Lesson extends React.Component {
 		});
 
 		this.setState({ 
-			formattedAnswer: this.state.input.join(' '), 
+			formattedAnswer: toUppercaseFirstLetter(this.state.input.join(' ')), 
 			error: filter.length > 0
 		});
 	}

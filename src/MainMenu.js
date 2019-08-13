@@ -5,24 +5,10 @@ import LessonManager from './LessonManager';
 import Icon24Education from '@vkontakte/icons/dist/24/education';
 import Icon24MoneyCircle from '@vkontakte/icons/dist/24/money_circle';
 import lessons from './lessonsData';
+import { shuffle } from './tools';
 
 const MENU_TITLE = 'Полиглот Английский';
 const LESSONS_GROUP_TITLE = 'Уроки';
-
-
-
-const exercise = [
-	{
-		question: "Я буду гулять завтра.",
-		answer: ["I", "will", "walk", "tomorrow"],
-		fake: ["he", "did"]
-	},
-	{
-		question: "Он танцевал вчера.",
-		answer: ["He", "danced", "yesterday"],
-		fake: ["she", "will", "tomorrow", 'haha']
-	},
-];
 
 class MainMenu extends React.Component {
 
@@ -53,14 +39,14 @@ class MainMenu extends React.Component {
 				<View id="mainView" activePanel="mainPanel">
 					<Panel id="mainPanel">
 						<PanelHeader>{MENU_TITLE}</PanelHeader>
-						<Donater />
+						
 						<Group title={LESSONS_GROUP_TITLE}>
 							{lessons.map((val, i) => {
 								return (
 									<div key={i}>
 										<Cell
 											onClick={this.onClickLesson}
-											before={i < 3 ? (<Icon24Education />) : (<Icon24MoneyCircle />)}
+											before={i < 3 ? (<Icon24Education />) : (<Icon24Education />)}
 											data-lesson={i}
 											description={val.description}>
 												{val.title}
@@ -75,7 +61,7 @@ class MainMenu extends React.Component {
 				<View id="lessonView" activePanel="lessonPanel">
 					<Panel id="lessonPanel">
 						<LessonManager 
-							exercise={lessons[this.state.selectedLesson].exercise} 
+							exercise={shuffle(lessons[this.state.selectedLesson].exercise)} 
 							onCloseLesson={this.onCloseLesson} 
 							lessonTitle={lessons[this.state.selectedLesson].title}
 						/>

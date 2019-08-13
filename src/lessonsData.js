@@ -27,7 +27,460 @@ const lessons = [
 	{ 
 		title: "Урок 6", 
 		description: "Слова-параметры. Употребление much и many",
-		// TODO
+		"exercise":[
+			{  
+			   "question":"У меня много времени.",
+			   "answer":[  
+				  "I",
+				  "have",
+				  "much",
+				  "time"
+			   ],
+			   "fake":[]
+			},
+			{  
+			   "question":"У нее много денег.",
+			   "answer":[  
+				  "She",
+				  "has",
+				  "much",
+				  "money"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"У меня много друзей.",
+			   "answer":[  
+				  "I",
+				  "have",
+				  "many",
+				  "friends"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"У меня мало времени.",
+			   "answer":[  
+				  "I",
+				  "have",
+				  "little",
+				  "time"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"У него осталось мало дней.",
+			   "answer":[  
+				  "He",
+				  "has",
+				  "a",
+				  "few",
+				  "days"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Я хорошо отдохнул.",
+			   "answer":[  
+				  "I",
+				  "had",
+				  "good",
+				  "rest"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"У нее есть время.",
+			   "answer":[  
+				  "She",
+				  "has",
+				  "time"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Все знаю это.",
+			   "answer":[  
+				  "Everybody",
+				  "knows",
+				  "it"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Он знает всех.",
+			   "answer":[  
+				  "He",
+				  "knows",
+				  "everybody"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Никто не поможет тебе.",
+			   "answer":[  
+				  "Nobody",
+				  "will",
+				  "help",
+				  "you"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Кто-нибудь тебе поможет.",
+			   "answer":[  
+				  "Somebody",
+				  "will",
+				  "help",
+				  "you"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Я знаю все о тебе.",
+			   "answer":[  
+				  "I",
+				  "know",
+				  "everything",
+				  "about",
+				  "you"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Я ничего не знаю об этом.",
+			   "answer":[  
+				  "I",
+				  "know",
+				  "nothing",
+				  "about",
+				  "it"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Что ты скрываешь от меня?",
+			   "answer":[  
+				  "What",
+				  "do",
+				  "you",
+				  "hide",
+				  "from",
+				  "me"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Дай мне что-нибудь поесть.",
+			   "answer":[  
+				  "Give",
+				  "me",
+				  "something",
+				  "to",
+				  "eat"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Он куда-то пошел.",
+			   "answer":[  
+				  "He",
+				  "went",
+				  "somewhere"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Я никогда не делаю этого.",
+			   "answer":[  
+				  "I",
+				  "never",
+				  "do",
+				  "it"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Иногда я это делаю.",
+			   "answer":[  
+				  "Sometimes",
+				  "I",
+				  "do",
+				  "it"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Он всегда это делает.",
+			   "answer":[  
+				  "He",
+				  "always",
+				  "does",
+				  "it"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Я так тебя люблю.",
+			   "answer":[  
+				  "I",
+				  "love",
+				  "you",
+				  "so",
+				  "much"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"В комнате было много стульев.",
+			   "answer":[  
+				  "There",
+				  "were",
+				  "many",
+				  "chairs",
+				  "in",
+				  "the",
+				  "room"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Многие из моих друзей - студенты.",
+			   "answer":[  
+				  "A",
+				  "lot",
+				  "of",
+				  "my",
+				  "friends",
+				  "are",
+				  "students"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Ты пьешь чай с большим количеством сахара?",
+			   "answer":[  
+				  "Do",
+				  "you",
+				  "drink",
+				  "tea",
+				  "with",
+				  "much",
+				  "sugar"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"У него в школе было много друзей?",
+			   "answer":[  
+				  "Did",
+				  "he",
+				  "have",
+				  "many",
+				  "friends",
+				  "in",
+				  "the",
+				  "school"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Очень много кофе для меня.",
+			   "answer":[  
+				  "It's",
+				  "so",
+				  "much",
+				  "coffee",
+				  "for",
+				  "me"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"У тебя будет много денег через месяц?",
+			   "answer":[  
+				  "Will",
+				  "you",
+				  "gave",
+				  "much",
+				  "money",
+				  "in",
+				  "a",
+				  "month"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"У вас много музеев в городе?",
+			   "answer":[  
+				  "Do",
+				  "you",
+				  "have",
+				  "a",
+				  "lot",
+				  "of",
+				  "museums",
+				  "in",
+				  "your",
+				  "city"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"В детском садике много детей.",
+			   "answer":[  
+				  "There",
+				  "are",
+				  "many",
+				  "children",
+				  "in",
+				  "the",
+				  "kindergarten"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Она носит много платьев?",
+			   "answer":[  
+				  "Does",
+				  "she",
+				  "wear",
+				  "many",
+				  "dresses"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Многие из них не были счастливы.",
+			   "answer":[  
+				  "Many",
+				  "of",
+				  "them",
+				  "weren't",
+				  "happy"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Он пил много сока или молока?",
+			   "answer":[  
+				  "Did",
+				  "he",
+				  "drink",
+				  "much",
+				  "juice",
+				  "or",
+				  "milk"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Многие мои слова полезны для тебя.",
+			   "answer":[  
+				  "A",
+				  "lot",
+				  "of",
+				  "my",
+				  "words",
+				  "are",
+				  "necessary",
+				  "for",
+				  "you"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"Я желаю тебе много счастья.",
+			   "answer":[  
+				  "I",
+				  "wish",
+				  "you",
+				  "much",
+				  "happiness"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			},
+			{  
+			   "question":"У тебя будет много рабочих на фабрике?",
+			   "answer":[  
+				  "Will",
+				  "you",
+				  "have",
+				  "many",
+				  "workers",
+				  "in",
+				  "your",
+				  "factory"
+			   ],
+			   "fake":[  
+		 
+			   ]
+			}
+		 ]
 	},
 	{ 
 		title: "Урок 7", 
@@ -79,17 +532,7 @@ const lessons = [
 		description: "Фразовые глаголы",
 		"exercise":[{"question":"Он любит.","answer":["He","loves"],"fake":[]},{"question":"Он любим.","answer":["He","is","loved"],"fake":[]},{"question":"Он видит.","answer":["He","sees"],"fake":[]},{"question":"Его видят.","answer":["He","is","seen"],"fake":[]},{"question":"Он построил дом.","answer":["He","built","the","house"],"fake":[]},{"question":"Дом был построен.","answer":["The","house","was","built"],"fake":[]},{"question":"Он сделал это.","answer":["He","did","it"],"fake":[]},{"question":"Это было сделано.","answer":["It","was","done"],"fake":[]},{"question":"Он построит дом.","answer":["He","will","be","build","the","house"],"fake":[]},{"question":"Дом будет построен.","answer":["The","house","will","be","built"],"fake":[]},{"question":"Я побывал.","answer":["I","have","been"],"fake":[]},{"question":"Ты не видешь его, но он видит тебя.","answer":["You","don't","see","him","but","he","sees","you"],"fake":[]},{"question":"Ты хочешь обсудить этот вопрос?","answer":["Did","you","discuss","this","question"],"fake":[]},{"question":"Тебе предстоит обсудить этот вопрос завтра.","answer":["You","will","discuss","this","question","tomorrow"],"fake":[]}]
 	},
-	{
-		title: "Test Lesson",
-		description: "This is the test",
-		exercise: [
-			{
-				question: "Он пойдет рисовать.",
-				answer: ['He',  'will',  'go', 'paint'],
-				fake: ['he', 'will',]
-			}
-		]
-	}
+	
 ];
 
 export default lessons;
