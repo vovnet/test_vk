@@ -3,6 +3,7 @@ import Lesson from './Lesson';
 import { Root, View, Panel, ModalRoot, ModalCard, PanelHeader, HeaderButton } from '@vkontakte/vkui';
 import Icon56FavoriteOutline from '@vkontakte/icons/dist/56/favorite_outline';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
+import './input_answer.css';
 
 class LessonManager extends React.Component {
 
@@ -18,9 +19,12 @@ class LessonManager extends React.Component {
 			progress: 0
 		};
 
+		this.numErrors = 0;
+
 		this.onCompleteExercise = this.onCompleteExercise.bind(this);
 		this.onNextExcercise = this.onNextExcercise.bind(this);
 		this.onCloseCompleteModal = this.onCloseCompleteModal.bind(this);
+		this.onErrorInput = this.onErrorInput.bind(this);
 	}
 
 	onCloseCompleteModal() {
@@ -30,6 +34,11 @@ class LessonManager extends React.Component {
 	onCompleteExercise() {
 		console.log('Complete!');
 		this.setState({activeModal: "resultModal", progress: this.calculateProgress()});
+	}
+
+	onErrorInput() {
+		this.numErrors++;
+		console.log('Errors: ' + this.numErrors);
 	}
 
 	completeLesson() {
@@ -70,7 +79,8 @@ class LessonManager extends React.Component {
 					id="completeModal"
 					onClose={this.onCloseCompleteModal}
 					icon={<Icon56FavoriteOutline />}
-					title="Вы полностью прошли данный урок."
+					title="Вы полностью прошли данный урок!"
+					caption={this.showErrors()}
 					actions={[{
 						title: 'Завершить',
 						type: 'primary',
@@ -94,9 +104,26 @@ class LessonManager extends React.Component {
 						exercise={this.props.exercise[this.state.currentLesson]} 
 						onComplete={this.onCompleteExercise} 
 						progressValue={this.state.progress} 
+						onErrorInput={this.onErrorInput}
 						key={Math.random()} />
 				</Panel>
 			</View>
+		);
+	}
+
+	showErrors() {
+		const errorPercent = this.numErrors / this.props.exercise.length * 100;
+		let message;
+		if (errorPercent == 0) message = 'Тема полностью усвоена!';
+		if (errorPercent > 10) message = 'Ваши знания на хорошем уровне!';
+		if (errorPercent > 20) message = 'Тема плохо усвоена, нужно больше практики.';
+		if (errorPercent > 50) message = 'Тема не усвоена!';
+		
+		return (
+			<div>
+				<div>Количество ошибок: {this.numErrors}</div>
+				<div className="knowledge">{message}</div>
+			</div>
 		);
 	}
 }

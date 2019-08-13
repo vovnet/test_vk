@@ -53,6 +53,7 @@ class Lesson extends React.Component {
 		this.setState(this.state.input);
 		this.formatAnswer();
 		if (this.compareResults()) this.props.onComplete();
+		if (this.isErrorInput()) this.props.onErrorInput();
 	}
 
 	changeDisabledButtons(id) {
@@ -64,16 +65,18 @@ class Lesson extends React.Component {
 		});
 	}
 
-	formatAnswer() {
-		let filter = this.state.input.filter((val, i) => {
+	isErrorInput() {
+		return this.state.input.filter((val, i) => {
 			if (this.props.exercise.answer[i] !== val) {
 				return 1;
 			}
-		});
+		}).length > 0;
+	}
 
+	formatAnswer() {
 		this.setState({ 
 			formattedAnswer: toUppercaseFirstLetter(this.state.input.join(' ')), 
-			error: filter.length > 0
+			error: this.isErrorInput() > 0
 		});
 	}
 

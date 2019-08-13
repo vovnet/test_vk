@@ -6,3 +6,8 @@
 .statusError {
 	color: #ff6c3e;
 }
+
+.knowledge {
+  color: brown;
+  font-weight: bold;
+}
