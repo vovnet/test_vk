@@ -4,11 +4,14 @@ import Donater from './Donater';
 import LessonManager from './LessonManager';
 import Icon24Education from '@vkontakte/icons/dist/24/education';
 import Icon24MoneyCircle from '@vkontakte/icons/dist/24/money_circle';
+import connect from '@vkontakte/vkui-connect';
 import lessons from './lessonsData';
 import { shuffle } from './tools';
 
 const MENU_TITLE = 'Полиглот Английский';
 const LESSONS_GROUP_TITLE = 'Уроки';
+
+const GROUP_ID = 55119351;
 
 class MainMenu extends React.Component {
 
@@ -31,6 +34,20 @@ class MainMenu extends React.Component {
 
 	onCloseLesson() {
 		this.setState({activeView: 'mainView'});
+		
+		connect.send("VKWebAppJoinGroup", {"group_id": GROUP_ID});
+	}
+
+	componentDidMount() {
+		connect.subscribe(this.vkHandler);
+	}
+
+	componentWillMount() {
+		connect.unsubscribe(this.vkHandler);
+	}
+
+	vkHandler(e) {
+		//console.log(e);
 	}
 
 	render() {

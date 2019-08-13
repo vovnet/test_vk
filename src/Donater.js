@@ -6,7 +6,7 @@ class Donater extends React.Component {
 	render() {
 		return (
 			<Group title="Донатер дня" className="donater">
-				<Cell
+				<Cell 
 					before={<Avatar src="https://sun9-42.userapi.com/c830109/v830109873/b9e84/KVziQV4QJwo.jpg?ava=1" />}
 					size="l"
 					multiline

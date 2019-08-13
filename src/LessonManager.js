@@ -1,8 +1,9 @@
 import React from 'react';
 import Lesson from './Lesson';
-import { Root, View, Panel, ModalRoot, ModalCard, PanelHeader, HeaderButton } from '@vkontakte/vkui';
+import { Root, View, Panel, ModalRoot, ModalCard, PanelHeader, HeaderButton, platform, IOS } from '@vkontakte/vkui';
 import Icon56FavoriteOutline from '@vkontakte/icons/dist/56/favorite_outline';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
+import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import './input_answer.css';
 
 class LessonManager extends React.Component {
@@ -32,17 +33,14 @@ class LessonManager extends React.Component {
 	}
 
 	onCompleteExercise() {
-		console.log('Complete!');
 		this.setState({activeModal: "resultModal", progress: this.calculateProgress()});
 	}
 
 	onErrorInput() {
 		this.numErrors++;
-		console.log('Errors: ' + this.numErrors);
 	}
 
 	completeLesson() {
-		console.log('lesson is complete!');
 		this.setState({activeModal: 'completeModal'});
 	}
 
@@ -60,6 +58,7 @@ class LessonManager extends React.Component {
 	}
 
 	render() {
+		const osname = platform();
 		const modal = (
 			<ModalRoot activeModal={this.state.activeModal}>
 				<ModalCard 
@@ -96,7 +95,7 @@ class LessonManager extends React.Component {
 					<PanelHeader 
 						left={
 							<HeaderButton onClick={this.props.onCloseLesson}>
-								<Icon24Back />
+								{osname === IOS ? <Icon28ChevronBack /> : <Icon24Back />}
 							</HeaderButton>
 						} > {this.props.lessonTitle}
 					</PanelHeader>

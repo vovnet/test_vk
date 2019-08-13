@@ -20,6 +20,7 @@ code {
   color: #377898;
 }
 
-.donater {
+Group .donater {
+  background-color: lawngreen;
   color: #f00;
 }

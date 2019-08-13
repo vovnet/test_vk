@@ -532,17 +532,6 @@ const lessons = [
 		description: "Фразовые глаголы",
 		"exercise":[{"question":"Он любит.","answer":["He","loves"],"fake":[]},{"question":"Он любим.","answer":["He","is","loved"],"fake":[]},{"question":"Он видит.","answer":["He","sees"],"fake":[]},{"question":"Его видят.","answer":["He","is","seen"],"fake":[]},{"question":"Он построил дом.","answer":["He","built","the","house"],"fake":[]},{"question":"Дом был построен.","answer":["The","house","was","built"],"fake":[]},{"question":"Он сделал это.","answer":["He","did","it"],"fake":[]},{"question":"Это было сделано.","answer":["It","was","done"],"fake":[]},{"question":"Он построит дом.","answer":["He","will","be","build","the","house"],"fake":[]},{"question":"Дом будет построен.","answer":["The","house","will","be","built"],"fake":[]},{"question":"Я побывал.","answer":["I","have","been"],"fake":[]},{"question":"Ты не видешь его, но он видит тебя.","answer":["You","don't","see","him","but","he","sees","you"],"fake":[]},{"question":"Ты хочешь обсудить этот вопрос?","answer":["Did","you","discuss","this","question"],"fake":[]},{"question":"Тебе предстоит обсудить этот вопрос завтра.","answer":["You","will","discuss","this","question","tomorrow"],"fake":[]}]
 	},
-	{
-		title: "test",
-		description: 'test',
-		exercise: [
-			{
-				question: "Привет",
-				answer: ["Hello"],
-				fake: ["fake"]
-			}
-		]
-	}
 ];
 
 export default lessons;
