@@ -58,7 +58,7 @@ class Lesson extends React.Component {
 
 	changeDisabledButtons(id) {
 		return this.state.buttons.map( (val) => {
-			if (val.id == id) {
+			if (val.id === id) {
 				val.disabled = !val.disabled;
 			}
 			return val;
@@ -70,6 +70,7 @@ class Lesson extends React.Component {
 			if (this.props.exercise.answer[i] !== val) {
 				return 1;
 			}
+			return 0;
 		}).length > 0;
 	}
 

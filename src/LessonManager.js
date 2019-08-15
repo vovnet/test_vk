@@ -1,10 +1,11 @@
 import React from 'react';
 import Lesson from './Lesson';
-import { Root, View, Panel, ModalRoot, ModalCard, PanelHeader, HeaderButton, platform, IOS } from '@vkontakte/vkui';
+import { View, Panel, ModalRoot, ModalCard, PanelHeader, HeaderButton, platform, IOS } from '@vkontakte/vkui';
 import Icon56FavoriteOutline from '@vkontakte/icons/dist/56/favorite_outline';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import './input_answer.css';
+import PlayButton from './PlayButton';
 
 class LessonManager extends React.Component {
 
@@ -17,7 +18,8 @@ class LessonManager extends React.Component {
 			currentLesson: 0,
 			activeView: "mainView",
 			activeModal: null,
-			progress: 0
+			progress: 0,
+			isPlayng: false
 		};
 
 		this.numErrors = 0;
@@ -65,13 +67,18 @@ class LessonManager extends React.Component {
 					id="resultModal" 
 					title="Правильно!" 
 					onClose={this.onNextExcercise}
-					icon={<Icon56FavoriteOutline />}
+					icon={
+						<PlayButton
+							url={"sounds/" + this.props.exercise[this.state.currentLesson].sound}
+							status="PLAYING"
+						/>
+					}
 					caption={this.props.exercise[this.state.currentLesson].answer.join(' ')}
 					actions={[{
 						title: 'Далее',
 						type: 'primary',
 						action: this.onNextExcercise
-					}]}>
+					}]}>	
 				</ModalCard>
 
 				<ModalCard 
@@ -113,7 +120,7 @@ class LessonManager extends React.Component {
 	showErrors() {
 		const errorPercent = this.numErrors / this.props.exercise.length * 100;
 		let message;
-		if (errorPercent == 0) message = 'Тема полностью усвоена!';
+		if (errorPercent === 0) message = 'Тема полностью усвоена!';
 		if (errorPercent > 10) message = 'Ваши знания на хорошем уровне!';
 		if (errorPercent > 20) message = 'Тема плохо усвоена, нужно больше практики.';
 		if (errorPercent > 50) message = 'Тема не усвоена!';

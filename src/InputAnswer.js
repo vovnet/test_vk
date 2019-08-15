@@ -8,7 +8,7 @@ class InputAnswer extends React.Component {
 		return (
 			<div className="answer-block">
 				<div className="answer">
-					<h2 className={this.props.statusError && "statusError"}>{this.props.text}</h2>
+					<h2 className={this.props.statusError ? "statusError" : undefined}>{this.props.text}</h2>
 				</div>
 				<Button disabled={this.props.disabled} onClick={this.props.onDelete} >Удалить</Button>
 			</div>
