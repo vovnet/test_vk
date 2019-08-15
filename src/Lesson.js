@@ -48,7 +48,7 @@ class Lesson extends React.Component {
 		let word = event.currentTarget.dataset.val;
 		let id = event.currentTarget.dataset.id;
 		this.history.push(id);
-		this.setState(this.changeDisabledButtons(id));
+		this.setState({buttons: this.changeDisabledButtons(id)});
 		this.state.input.push(word);
 		this.setState(this.state.input);
 		this.formatAnswer();
@@ -58,7 +58,7 @@ class Lesson extends React.Component {
 
 	changeDisabledButtons(id) {
 		return this.state.buttons.map( (val) => {
-			if (val.id === id) {
+			if (val.id == id) {
 				val.disabled = !val.disabled;
 			}
 			return val;

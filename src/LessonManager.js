@@ -12,6 +12,8 @@ class LessonManager extends React.Component {
 	constructor(props) {
 		super(props);
 
+		console.log('num exercises: ' + props.exercise.length);
+
 		this.state = {
 			isCompleteExercise: false,
 			isCompleteLesson: false,
@@ -121,9 +123,9 @@ class LessonManager extends React.Component {
 		const errorPercent = this.numErrors / this.props.exercise.length * 100;
 		let message;
 		if (errorPercent === 0) message = 'Тема полностью усвоена!';
-		if (errorPercent > 10) message = 'Ваши знания на хорошем уровне!';
-		if (errorPercent > 20) message = 'Тема плохо усвоена, нужно больше практики.';
-		if (errorPercent > 50) message = 'Тема не усвоена!';
+		if (errorPercent > 0) message = 'Ваши знания на хорошем уровне!';
+		if (errorPercent > 10) message = 'Тема плохо усвоена, нужно больше практики.';
+		if (errorPercent > 30) message = 'Тема не усвоена!';
 		
 		return (
 			<div>

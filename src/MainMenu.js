@@ -6,10 +6,11 @@ import Icon24Education from '@vkontakte/icons/dist/24/education';
 import Icon24MoneyCircle from '@vkontakte/icons/dist/24/money_circle';
 import connect from '@vkontakte/vkui-connect';
 import lessons from './lessonsData';
-import { shuffle } from './tools';
+import { shuffle, getRandomArray } from './tools';
 
 const MENU_TITLE = 'Полиглот Английский';
 const LESSONS_GROUP_TITLE = 'Уроки';
+const NUM_EXERCISES = 20;
 
 const GROUP_ID = 55119351;
 
@@ -78,7 +79,7 @@ class MainMenu extends React.Component {
 				<View id="lessonView" activePanel="lessonPanel">
 					<Panel id="lessonPanel">
 						<LessonManager 
-							exercise={shuffle(lessons[this.state.selectedLesson].exercise)} 
+							exercise={getRandomArray(lessons[this.state.selectedLesson].exercise, NUM_EXERCISES)} 
 							onCloseLesson={this.onCloseLesson} 
 							lessonTitle={lessons[this.state.selectedLesson].title}
 						/>
