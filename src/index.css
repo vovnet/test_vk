@@ -24,3 +24,12 @@ Group .donater {
   background-color: lawngreen;
   color: #f00;
 }
+
+.audition {
+  display: flex;
+  justify-content: center;
+}
+
+.wrongAnswer {
+  background: #e99;
+}

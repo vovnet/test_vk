@@ -23,8 +23,10 @@ class PlayButton extends React.Component {
                 <Button 
                     disabled={this.state.status === Sound.status.PLAYING}
                     level="outline"
-                    onClick={() => this.setState({status: Sound.status.PLAYING})}>
-                        <Icon24Volume />
+                    onClick={() => this.setState({status: Sound.status.PLAYING})}
+                    before={<Icon24Volume/>}
+                    size="l">
+                        Прослушать
                 </Button>
             </div>
         );

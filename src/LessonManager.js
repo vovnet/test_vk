@@ -20,8 +20,7 @@ class LessonManager extends React.Component {
 			currentLesson: 0,
 			activeView: "mainView",
 			activeModal: null,
-			progress: 0,
-			isPlayng: false
+			progress: 0
 		};
 
 		this.numErrors = 0;
