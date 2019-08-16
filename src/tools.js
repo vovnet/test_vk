@@ -14,3 +14,8 @@ export function getRandomArray(arr, length) {
     let result = shuffle(arr);
     return arr.slice(-length);
 }
+
+export function getPercent(priv, general, reverse = false) {
+    let result = priv / general * 100;
+    return parseInt(reverse ? 100 - result : result);
+}

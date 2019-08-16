@@ -41,7 +41,7 @@ class MainMenu extends React.Component {
 				onClose={() => this.setState({popout: null})}>
 					<ActionSheetItem onClick={() => this.startLesson(lessonIndex)}>Тренировка</ActionSheetItem>
 					<ActionSheetItem onClick={() => this.startAudition(lessonIndex)}>Аудирование</ActionSheetItem>
-					<ActionSheetItem autoclose>Материалы</ActionSheetItem>
+					<ActionSheetItem onClick={() => this.startMaterial(lessonIndex)}>Материалы</ActionSheetItem>
 					{IS_PLATFORM_IOS && <ActionSheetItem autoclose theme="cancel">Отмена</ActionSheetItem>}
 			</ActionSheet>
 		});
@@ -60,6 +60,14 @@ class MainMenu extends React.Component {
 			activeView: 'lessonView', 
 			selectedLesson: lessonIndex,
 			activeLessonPanel: 'auditionPanel'
+		});
+	}
+
+	startMaterial(lessonIndex) {
+		this.setState({
+			activeView: 'lessonView',
+			selectedLesson: lessonIndex,
+			activeLessonPanel: 'materialPanel'
 		});
 	}
 
@@ -123,10 +131,14 @@ class MainMenu extends React.Component {
 							lessonTitle={lessons[this.state.selectedLesson].title}
 						/>
 					</Panel>
+					<Panel id="materialPanel">
+						
+					</Panel>
 				</View>
 			</Root>
 		);
 	}
 }
+
 
 export default MainMenu;
