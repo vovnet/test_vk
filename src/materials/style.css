@@ -1,0 +1,32 @@
+.example {
+    color: #555;
+    border: 1px solid #ccc;
+    font-style: italic;
+    padding: 1px 8px;
+    border-radius: 10px;
+}
+
+.example-text {
+    text-align: right;
+    margin-bottom: -.05em;
+    font-style: italic;
+}
+
+h2, h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 1.1em;
+    color: var(--icon_secondary);
+    font-style: oblique;
+}
+
+h1 {
+    color: var(--accent);
+}
+
+b {
+    color: var(--accent);
+}

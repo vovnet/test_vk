@@ -7,6 +7,7 @@ import Icon24MoneyCircle from '@vkontakte/icons/dist/24/money_circle';
 import connect from '@vkontakte/vkui-connect';
 import lessons from './lessonsData';
 import { shuffle, getRandomArray } from './tools';
+import Material from './Material';
 
 const MENU_TITLE = 'Полиглот Английский';
 const LESSONS_GROUP_TITLE = 'Уроки';
@@ -132,7 +133,9 @@ class MainMenu extends React.Component {
 						/>
 					</Panel>
 					<Panel id="materialPanel">
-						
+						<Material lessonId={this.state.selectedLesson} 
+							onClose={this.onCloseLesson}
+						/>
 					</Panel>
 				</View>
 			</Root>
