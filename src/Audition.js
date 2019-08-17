@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Progress, CellButton, View, Div, Cell, Group, Separator, Panel, PanelHeader, HeaderButton, IS_PLATFORM_IOS } from '@vkontakte/vkui';
+import { Button, Progress, CellButton, View, Div, IS_PLATFORM_ANDROID, Group, Separator, Panel, PanelHeader, HeaderButton, IS_PLATFORM_IOS } from '@vkontakte/vkui';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import PlayButton from './PlayButton';
@@ -89,25 +89,30 @@ class Audition extends React.Component {
         );
 
 
-
         const complete = (
             <Group title="Завершено">
                 <Div className="complete-box">
                     <h2>{this.isGoodResult() ? "Успех!" : "Нужно больше практики"}</h2>
-
-                    <PieChart className="pie"
-                        data={this.getPieData()}
-                        totalValue={100}
-                        lineWidth={20}
-                        label
-                        rounded
-                        labelStyle={{
-                            fontSize: '.4em',
-                            fontFamily: 'sans-serif'
-                        }}
-                        labelPosition={60}
-                        radius={20}
-                    />
+                    {(IS_PLATFORM_ANDROID) ? (
+                            <div className={this.isGoodResult() ? "big-result good-result" : "big-result bad-result"}>
+                                {getPercent(this.state.numErrors, this.props.exercise.length, true)}
+                            </div>
+                        ) : (
+                            <PieChart className="pie"
+                                data={this.getPieData()}
+                                totalValue={100}
+                                lineWidth={20}
+                                label
+                                rounded
+                                labelStyle={{
+                                    fontSize: '.4em',
+                                    fontFamily: 'sans-serif'
+                                }}
+                                labelPosition={60}
+                                radius={20}
+                            />
+                    )}
+                    
                     <p className={this.isGoodResult() ? "good-result" : "bad-result"}>
                         Успешно завершено {getPercent(this.state.numErrors, this.props.exercise.length, true)}% заданий!
                     </p>

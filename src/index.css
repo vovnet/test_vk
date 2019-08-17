@@ -71,3 +71,7 @@ Group .donater {
 .complete-button {
   width: 50%;
 }
+
+.big-result {
+  font-size: 5em;
+}
