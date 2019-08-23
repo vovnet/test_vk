@@ -67,7 +67,7 @@ class Lesson extends React.Component {
 
 	isErrorInput() {
 		return this.state.input.filter((val, i) => {
-			if (this.props.exercise.answer[i] !== val) {
+			if (this.props.exercise.answer[i].toLowerCase() !== val.toLowerCase()) {
 				return 1;
 			}
 			return 0;

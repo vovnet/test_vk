@@ -203,11 +203,11 @@ class Audition extends React.Component {
     }
 
     getPieData() {
-        const first = getPercent(this.state.numErrors, this.props.exercise.length, false);
-        const second = 100 - first;
+        const truePercent = getPercent(this.state.numErrors, this.props.exercise.length, true);
+        const errorPercent = 100 - truePercent;
         return [
-            { value: second, color: 'var(--field_valid_border)' },
-            { value: first, color: 'var(--field_error_border)' }
+            { value: truePercent, color: 'var(--field_valid_border)' },
+            { value: errorPercent, color: 'var(--field_error_border)' }
         ]
     }
 
