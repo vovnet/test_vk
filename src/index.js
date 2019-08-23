@@ -15,7 +15,7 @@ connect.subscribe((e) => {
             break;
 
         default:
-            console.log(e.detail.type);
+            //console.log(e.detail.type);
     }
 });
 

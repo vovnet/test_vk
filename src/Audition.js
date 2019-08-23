@@ -59,7 +59,6 @@ class Audition extends React.Component {
                                     isShowAnswer: false,
                                     isHelp: false,
                                     isError: false,
-                                    soundStatus: "PLAYING",
                                     current: this.state.current + 1
                                 });
                                 this.variants = this.generateVariants(NUM_VARIANTS, this.state.current + 1);
@@ -165,7 +164,7 @@ class Audition extends React.Component {
         this.setState({
             isShowAnswer: true,
             isHelp: true,
-            progress: this.getProgress()
+            progress: this.getProgress(),
         });
     }
 

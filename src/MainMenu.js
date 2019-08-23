@@ -52,7 +52,8 @@ class MainMenu extends React.Component {
 		this.setState({
 			activeView: 'lessonView', 
 			selectedLesson: lessonIndex,
-			activeLessonPanel: 'lessonPanel'
+			activeLessonPanel: 'lessonPanel',
+			popout: null,
 		});
 	}
 
@@ -60,7 +61,8 @@ class MainMenu extends React.Component {
 		this.setState({
 			activeView: 'lessonView', 
 			selectedLesson: lessonIndex,
-			activeLessonPanel: 'auditionPanel'
+			activeLessonPanel: 'auditionPanel',
+			popout: null,
 		});
 	}
 
@@ -68,7 +70,8 @@ class MainMenu extends React.Component {
 		this.setState({
 			activeView: 'lessonView',
 			selectedLesson: lessonIndex,
-			activeLessonPanel: 'materialPanel'
+			activeLessonPanel: 'materialPanel',
+			popout: null,
 		});
 	}
 
