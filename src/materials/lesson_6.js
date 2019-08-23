@@ -38,7 +38,7 @@ const lesson_6 = (
         </div>
         <p className="example-text">Место:</p>
         <div className="example">
-            <p><b>everywhere</b> - везду</p>
+            <p><b>everywhere</b> - везде</p>
             <p><b>somewhere</b> - где-то, где-нибудь</p>
             <p><b>anywhere</b> - где угодно, где-нибудь</p>
             <p><b>nowhere</b> - нигде</p>
