@@ -4,7 +4,7 @@ import Icon24Back from '@vkontakte/icons/dist/24/back';
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import PlayButton from './PlayButton';
 import FlashCell from './FlashCell';
-import { shuffle, getPercent } from './tools';
+import { shuffle, getPercent, formatAnswerByQuestion } from './tools';
 import PieChart from 'react-minimal-pie-chart';
 
 const NUM_VARIANTS = 2;
@@ -157,7 +157,10 @@ class Audition extends React.Component {
     }
 
     getHelpText() {
-        return this.props.exercise[this.state.current].answer.join(' ');
+        return formatAnswerByQuestion(
+            this.props.exercise[this.state.current].question, 
+            this.props.exercise[this.state.current].answer
+        );
     }
 
     onAnswer() {

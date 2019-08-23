@@ -19,3 +19,8 @@ export function getPercent(priv, general, reverse = false) {
     let result = priv / general * 100;
     return parseInt(reverse ? 100 - result : result);
 }
+
+export function formatAnswerByQuestion(question, answer) {
+    const symbol = question.slice(-1);
+    return answer.join(" ") + symbol;
+}

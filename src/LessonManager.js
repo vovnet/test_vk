@@ -6,6 +6,8 @@ import Icon24Back from '@vkontakte/icons/dist/24/back';
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import './input_answer.css';
 import PlayButton from './PlayButton';
+import { formatAnswerByQuestion } from './tools';
+
 
 class LessonManager extends React.Component {
 
@@ -74,12 +76,12 @@ class LessonManager extends React.Component {
 							status="PLAYING"
 						/>
 					}
-					caption={this.props.exercise[this.state.currentLesson].answer.join(' ')}
+					caption={formatAnswerByQuestion(this.props.exercise[this.state.currentLesson].question, this.props.exercise[this.state.currentLesson].answer)}
 					actions={[{
 						title: 'Далее',
 						type: 'primary',
 						action: this.onNextExcercise
-					}]}>	
+					}]}>
 				</ModalCard>
 
 				<ModalCard 
