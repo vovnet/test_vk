@@ -5,6 +5,7 @@
   "homepage": "https://vovnet.github.io/test_vk/",
   "dependencies": {
     "@vkontakte/icons": "^1.8.0",
+    "@vkontakte/mvk-mini-apps-scroll-helper": "^1.0.2",
     "@vkontakte/vkui": "^2.24.0",
     "@vkontakte/vkui-connect": "^1.5.3",
     "gh-pages": "^2.1.0",

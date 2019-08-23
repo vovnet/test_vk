@@ -4,6 +4,7 @@ import './index.css';
 import '@vkontakte/vkui/dist/vkui.css';
 import connect from '@vkontakte/vkui-connect';
 import MainMenu from './MainMenu';
+import mVKMiniAppsScrollHelper from '@vkontakte/mvk-mini-apps-scroll-helper';
 
 
 connect.subscribe((e) => {
@@ -21,4 +22,6 @@ connect.subscribe((e) => {
 
 connect.send('VKWebAppInit', {});
 
-ReactDOM.render(<MainMenu />, document.getElementById('root'));
+const root = document.getElementById('root');
+mVKMiniAppsScrollHelper(root);
+ReactDOM.render(<MainMenu />, root);
