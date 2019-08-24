@@ -24,7 +24,7 @@ class MainMenu extends React.Component {
 			activeView: 'mainView',
 			selectedLesson: 0,
 			activeLessonPanel: 'lessonPanel',
-			popout: null
+			popout: null,
 		};
 
 		this.onCloseLesson = this.onCloseLesson.bind(this);
@@ -49,6 +49,7 @@ class MainMenu extends React.Component {
 	}
 
 	startLesson(lessonIndex) {
+		window.history.pushState({page: 'lesson'}, 'start');
 		this.setState({
 			activeView: 'lessonView', 
 			selectedLesson: lessonIndex,
@@ -58,6 +59,7 @@ class MainMenu extends React.Component {
 	}
 
 	startAudition(lessonIndex) {
+		window.history.pushState({page: 'audition'}, 'start');
 		this.setState({
 			activeView: 'lessonView', 
 			selectedLesson: lessonIndex,
@@ -67,6 +69,7 @@ class MainMenu extends React.Component {
 	}
 
 	startMaterial(lessonIndex) {
+		window.history.pushState({page: 'material'}, 'start');
 		this.setState({
 			activeView: 'lessonView',
 			selectedLesson: lessonIndex,
@@ -83,6 +86,9 @@ class MainMenu extends React.Component {
 
 
 	componentDidMount() {
+		window.onpopstate = (e) => {
+			this.setState({activeView: 'mainView', activePanel: "mainPanel"});
+		};
 		connect.subscribe(this.vkHandler);
 	}
 
