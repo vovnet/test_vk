@@ -145,7 +145,7 @@ class Audition extends React.Component {
                 <Panel id="auditionPanel">
                     <PanelHeader
                         left={
-                            <HeaderButton onClick={this.props.onCloseLesson}>
+                            <HeaderButton onClick={this.onBack}>
                                 {IS_PLATFORM_IOS ? <Icon28ChevronBack /> : <Icon24Back />}
                             </HeaderButton>
                         } > {this.props.lessonTitle}
@@ -155,6 +155,11 @@ class Audition extends React.Component {
             </View>
         );
     }
+
+    onBack = () => {
+        this.setState({soundStatus: "STOPPING"});
+        this.props.onCloseLesson();
+    };
 
     getHelpText() {
         return formatAnswerByQuestion(
