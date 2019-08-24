@@ -8,6 +8,7 @@ import connect from '@vkontakte/vkui-connect';
 import lessons from './lessonsData';
 import { shuffle, getRandomArray } from './tools';
 import Material from './Material';
+import TestingContainer from './components/testing/TestingContainer';
 
 const MENU_TITLE = 'Полиглот Английский';
 const LESSONS_GROUP_TITLE = 'Уроки';
@@ -106,7 +107,6 @@ class MainMenu extends React.Component {
 				<View id="mainView" activePanel="mainPanel" popout={this.state.popout}>
 					<Panel id="mainPanel">
 						<PanelHeader>{MENU_TITLE}</PanelHeader>
-						
 						<Group title={LESSONS_GROUP_TITLE}>
 							{lessons.map((val, i) => {
 								return (
@@ -128,11 +128,7 @@ class MainMenu extends React.Component {
 				</View>
 				<View id="lessonView" activePanel={this.state.activeLessonPanel}>
 					<Panel id="lessonPanel">
-						<LessonManager 
-							exercise={getRandomArray(lessons[this.state.selectedLesson].exercise, NUM_EXERCISES)} 
-							onCloseLesson={this.onCloseLesson} 
-							lessonTitle={lessons[this.state.selectedLesson].title}
-						/>
+						<TestingContainer />
 					</Panel>
 					<Panel id="auditionPanel">
 						<Audition 

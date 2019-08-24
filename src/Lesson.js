@@ -1,8 +1,10 @@
 import React from 'react';
 import { Group, Div, Progress } from '@vkontakte/vkui';
 import InputAnswer from './InputAnswer';
-import Variants from './Variants';
+import Variants from './components/variants/Variants';
 import { shuffle, toUppercaseFirstLetter } from './tools';
+import VariantsContainer from './components/variants/VariantsContainer';
+import RemoveButton from './components/variants/RemoveButton';
 
 class Lesson extends React.Component {
 
@@ -88,6 +90,7 @@ class Lesson extends React.Component {
 	render() {
 		return (
 			<Div>
+				<RemoveButton />
 				<Group>
 					<Div>
 						<Progress value={this.props.progressValue} />
@@ -105,7 +108,7 @@ class Lesson extends React.Component {
 				</Group>
 				<Group>
 					<Div>
-						<Variants arr={this.state.buttons} onClickWord={this.onClickWord} />
+						<VariantsContainer />
 					</Div>
 				</Group>
 			</Div>		

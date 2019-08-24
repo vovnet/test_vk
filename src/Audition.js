@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Progress, CellButton, View, Div, IS_PLATFORM_ANDROID, Group, Separator, Panel, PanelHeader, HeaderButton, IS_PLATFORM_IOS } from '@vkontakte/vkui';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
-import PlayButton from './PlayButton';
+import PlayButton from './components/sound/PlayButton';
 import FlashCell from './FlashCell';
 import { shuffle, getPercent, formatAnswerByQuestion } from './tools';
 import PieChart from 'react-minimal-pie-chart';

@@ -5,8 +5,9 @@ import Icon56FavoriteOutline from '@vkontakte/icons/dist/56/favorite_outline';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import './input_answer.css';
-import PlayButton from './PlayButton';
+import PlayButton from './components/sound/PlayButton';
 import { formatAnswerByQuestion } from './tools';
+import PlayButtonContainer from './components/sound/PlayButtonContainer';
 
 
 class LessonManager extends React.Component {
@@ -87,10 +88,7 @@ class LessonManager extends React.Component {
 					title="Правильно!" 
 					onClose={this.onNextExcercise}
 					icon={
-						<PlayButton
-							url={this.state.activeModal !== null ? this.getCurrentSound() : null}
-							status='PLAYING'
-						/>
+						<PlayButtonContainer />
 					}
 					caption={this.state.activeModal !== null ? this.getCaption() : ''}
 					actions={[{

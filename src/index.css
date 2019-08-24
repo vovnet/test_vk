@@ -80,3 +80,30 @@ Group .donater {
 .big-result {
   font-size: 5em;
 }
+
+.none-visible {
+  display: none;
+}
+
+.testing-container {
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100%;
+}
+
+.testing-input {
+  min-height: 4em;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.remove-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+
+.remove-input {
+  width: 50%
+}
