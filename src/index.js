@@ -23,5 +23,5 @@ connect.subscribe((e) => {
 connect.send('VKWebAppInit', {});
 
 const root = document.getElementById('root');
-mVKMiniAppsScrollHelper(root);
+//mVKMiniAppsScrollHelper(root);
 ReactDOM.render(<MainMenu />, root);
