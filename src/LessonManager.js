@@ -22,7 +22,7 @@ class LessonManager extends React.Component {
 			currentLesson: 0,
 			activeView: "mainView",
 			activeModal: null,
-			progress: 0
+			progress: 0,
 		};
 
 		this.numErrors = 0;
@@ -58,8 +58,24 @@ class LessonManager extends React.Component {
 			this.completeLesson();
 		} else {
 			const curr = this.state.currentLesson + 1;
-			this.setState({activeModal: null, currentLesson: curr, progress: this.calculateProgress()});
+			this.setState({
+				activeModal: null, 
+				currentLesson: curr, 
+				progress: this.calculateProgress(),
+				status: 'STOPPED'
+			});
 		}
+	}
+
+	getCurrentSound = () => {
+		return "sounds/" + this.props.exercise[this.state.currentLesson].sound;
+	}
+
+	getCaption = () => {
+		return formatAnswerByQuestion(
+			this.props.exercise[this.state.currentLesson].question, 
+			this.props.exercise[this.state.currentLesson].answer
+		);
 	}
 
 	render() {
@@ -72,11 +88,11 @@ class LessonManager extends React.Component {
 					onClose={this.onNextExcercise}
 					icon={
 						<PlayButton
-							url={"sounds/" + this.props.exercise[this.state.currentLesson].sound}
-							status="PLAYING"
+							url={this.state.activeModal !== null ? this.getCurrentSound() : null}
+							status='PLAYING'
 						/>
 					}
-					caption={formatAnswerByQuestion(this.props.exercise[this.state.currentLesson].question, this.props.exercise[this.state.currentLesson].answer)}
+					caption={this.state.activeModal !== null ? this.getCaption() : ''}
 					actions={[{
 						title: 'Далее',
 						type: 'primary',

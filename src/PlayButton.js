@@ -19,6 +19,8 @@ class PlayButton extends React.Component {
                     url={this.props.url}
                     playStatus={this.state.status}
                     onFinishedPlaying={ () => {this.setState({status: Sound.status.STOPPED})} }
+                    autoLoad={true}
+                    onError={ () => this.setState({staus: 'STOPPED'}) }
                 />
                 <Button 
                     disabled={this.state.status === Sound.status.PLAYING}
